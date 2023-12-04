@@ -8,16 +8,46 @@ export default {
     data() {
         return {
             todoList: [
-                { name: 'Push-ups', id: 1, status: 0},
-                { name: 'Squats', id: 2, status: 0},
-                { name: 'Plank', id: 3, status: 0},
-                { name: 'Jumping Jacks', id: 4, status: 0},
+                {
+                    title: 'Push-ups',
+                    description: 'Do 10 pushups with your hands placed in a wide position',
+                    id: 1,
+                    status: 0
+                },
+                {
+                    title: 'Squats',
+                    description: 'Perform 15 squats with proper form and controlled movement',
+                    id: 2,
+                    status: 0
+                },
+                {
+                    title: 'Plank',
+                    description: 'Hold a plank position for 1 minute, engaging your core muscles',
+                    id: 3,
+                    status: 0
+                },
+                {
+                    title: 'Jumping Jacks',
+                    description: 'Complete 20 jumping jacks with full range of motion',
+                    id: 4,
+                    status: 0
+                }
             ],
             doingList: [
-                { name: 'Running', id: 5, status: 1},
+                {
+                    title: 'Running',
+                    description: 'Jog for 20 minutes at a moderate pace',
+                    id: 5,
+                    status: 1
+                }
             ],
             doneList: [
-                { name: 'Burpees', id: 6, status: 2},
+                {
+                    title: 'Burpees',
+                    description: 'Finish a set of 12 burpees with proper form',
+                    id: 6,
+                    status: 2
+                }
             ]
         }
     },
@@ -36,7 +66,12 @@ export default {
             <draggable class="kanban-list" :list="todoList" group="exercises" @change="log">
                 <template v-slot:item="{ element }">
                     <div class="kanban-list-item">
-                        {{ element.name }}
+                        <div class="kanban-list-item-title">
+                            {{ element.title }}: 
+                        </div>
+                        <div class="kanban-list-item-description">
+                            {{ element.description }}
+                        </div>
                     </div>
                 </template>
             </draggable>
@@ -47,7 +82,12 @@ export default {
             <draggable class="kanban-list" :list="doingList" group="exercises" @change="log">
                 <template v-slot:item="{ element }">
                     <div class="kanban-list-item">
-                        {{ element.name }}
+                        <div class="kanban-list-item-title">
+                            {{ element.title }}: 
+                        </div>
+                        <div class="kanban-list-item-description">
+                            {{ element.description }}
+                        </div>
                     </div>
                 </template>
             </draggable>
@@ -58,55 +98,18 @@ export default {
             <draggable class="kanban-list" :list="doneList" group="exercises" @change="log">
                 <template v-slot:item="{ element }">
                     <div class="kanban-list-item">
-                        {{ element.name }}
+                        <div class="kanban-list-item-title">
+                            {{ element.title }}: 
+                        </div>
+                        <div class="kanban-list-item-description">
+                            {{ element.description }}
+                        </div>
                     </div>
                 </template>
             </draggable>
         </div>
     </div>
 </template>
-
-<style scoped>
-.kanban-board {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Three columns with equal width */
-    gap: 20px;
-    display: normal;
-    padding-bottom: 0px;
-}
-
-.kanban-column {
-    float: left;
-    clear: right;
-    border-radius: 5px;
-    background-color: #eaebed;
-    min-height: 600px;
-    width: 300px;
-    padding-bottom: 0px;
-    padding-left: 6px;
-    min-height: calc(50% - 20px);
-    display: table;
-}
-
-.kanban-list {
-}
-
-.kanban-title {
-    color: black !important;
-    font-weight: bold !important;
-}
-
-.kanban-list-item {
-    color: black !important;
-    cursor: pointer;
-}
-
-.col-3 {
-    color: white !important;
-    background-color: black !important;
-}
-</style>
-
 
 <style scoped>
 .kanban-board {
@@ -135,7 +138,7 @@ export default {
 
 .kanban-title {
     color: black !important;
-    font-weight: bold !important;
+    font-weight: 700 !important;
 }
 
 .kanban-list-item {
@@ -148,49 +151,13 @@ export default {
     cursor: pointer;
 }
 
-.col-3 {
-    color: white !important;
-    background-color: black !important;
-}
-</style>
-
-<style scoped>
-.kanban-board {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Three columns with equal width */
-    gap: 20px;
-    display: normal;
-    padding-bottom: 0px;
+.kanban-list-item-title {
+    font-weight: 500;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 5px;
 }
 
-.kanban-column {
-    float: left;
-    clear: right;
-    border-radius: 5px;
-    background-color: #eaebed;
-    min-height: 600px;
-    width: 300px;
-    padding-bottom: 0px;
-    padding-left: 6px;
-    min-height: calc(50% - 20px);
-    display: table;
-}
-
-.kanban-list {
-}
-
-.kanban-title {
-    color: black !important;
-    font-weight: bold !important;
-}
-
-.kanban-list-item {
-    color: black !important;
-    cursor: pointer;
-}
-
-.col-3 {
-    color: white !important;
-    background-color: black !important;
+.kanban-list-item-description {
+    padding: 5px;
 }
 </style>
