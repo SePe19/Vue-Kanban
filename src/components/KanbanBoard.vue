@@ -66,9 +66,7 @@ export default {
             <draggable class="kanban-list" :list="todoList" group="exercises" @change="log">
                 <template v-slot:item="{ element }">
                     <div class="kanban-list-item">
-                        <div class="kanban-list-item-title">
-                            {{ element.title }}: 
-                        </div>
+                        <div class="kanban-list-item-title">{{ element.title }}:</div>
                         <div class="kanban-list-item-description">
                             {{ element.description }}
                         </div>
@@ -82,9 +80,7 @@ export default {
             <draggable class="kanban-list" :list="doingList" group="exercises" @change="log">
                 <template v-slot:item="{ element }">
                     <div class="kanban-list-item">
-                        <div class="kanban-list-item-title">
-                            {{ element.title }}: 
-                        </div>
+                        <div class="kanban-list-item-title">{{ element.title }}:</div>
                         <div class="kanban-list-item-description">
                             {{ element.description }}
                         </div>
@@ -98,9 +94,7 @@ export default {
             <draggable class="kanban-list" :list="doneList" group="exercises" @change="log">
                 <template v-slot:item="{ element }">
                     <div class="kanban-list-item">
-                        <div class="kanban-list-item-title">
-                            {{ element.title }}: 
-                        </div>
+                        <div class="kanban-list-item-title">{{ element.title }}:</div>
                         <div class="kanban-list-item-description">
                             {{ element.description }}
                         </div>
@@ -114,7 +108,7 @@ export default {
 <style scoped>
 .kanban-board {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Three columns with equal width */
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     display: normal;
     padding-bottom: 0px;
@@ -134,6 +128,7 @@ export default {
 
 .kanban-list {
     margin-bottom: 5px;
+    min-height: 300px;
 }
 
 .kanban-title {
